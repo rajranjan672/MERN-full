@@ -159,17 +159,17 @@ const handleChange =(event) => {
     <div className="plans">
     <div className='container-fluid'>
       <div className='row'>
-      <FormGroup className='col-2'>
+      {/* <FormGroup className='col-2'>
 <FormControlLabel control={<Switch checked={isdark} onChange={handleChange} color='error'/>}
         label={`${isdark? 'Dark Mode':'Light Mode'}`} />
 
-</FormGroup>
+</FormGroup> */}
 
 
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
      
-<h3>{user.name}</h3>
+{/* <h3>{user.name}</h3> */}
     <NewPlan gett={getplans} />
     <div className='inputss'>
     <input className='inputt' type="text"  placeholder='Search plans' onChange={event => {setQuery(event.target.value)}} />

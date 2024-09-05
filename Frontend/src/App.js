@@ -23,6 +23,8 @@ import "../src/index.css";
 import "./App.css";
 import UpdateBook from './components/Plans/UpdateBook';
 import Footer from './components/Plans/Footer';
+import DrawerAppBar from './Router/Navbar';
+// import ServicesDropdown from './Router/ServicesDropdown';
 const LazyQuiz = React.lazy(() => import('./components/Plans/QUIZ'));
 const LazyProfile = React.lazy(() => import('./Router/Profile'))
 const LazyIntegration = React.lazy(() => import('./components/Plans/Plans'))
@@ -86,10 +88,16 @@ try {
     <div className='app'>
 
     <div>
-      <Navbar data ={data}/>
+      <DrawerAppBar data ={data}/>
       
 </div>
-      <Routes>
+
+    <div className='pt-5'>
+    {/* <ServicesDropdown /> */}
+
+    </div>
+    <div className='mt-4'>
+    <Routes>
        <Route path="/" element={<Navigate to="/home"/>} />
         <Route path="/home" defaults element={<React.Suspense fallback='Loading...'>
           <LazyIntegration user ={data} />
@@ -117,6 +125,8 @@ try {
         
         
       </Routes>
+    </div>
+     
 
 
     </div>

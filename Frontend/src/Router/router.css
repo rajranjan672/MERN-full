@@ -47,12 +47,12 @@
   
 }
 
-.navbar ul .nav-item {
+ .nav-item {
 color: white;
 }
 
 .footer_nav:hover {
-  color: rgb(10, 173, 119);
+  color: rgb(124, 173, 10);
   font-weight: 500;
 }
 
