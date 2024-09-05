@@ -13,17 +13,16 @@ const student = require("./router/student-detail");
  const course = require('./router/courses')
  const actionPlans = require("./router/actionplans")
  const faqs = require('./router/faqs')
- const users = require('./router/users')
+//  const users = require('./router/users')
 
  const MongoStore = require('connect-mongo');
 // app.use('/images', express.static('images'))
+const dotenv = require("dotenv").config();
 
 
 //mongodb connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/courses', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(process.env.MONGODB_URI, {
 }).then(() => {
     console.log('Database connected sucessfully ')
 
@@ -83,7 +82,7 @@ app.use("/api/students", student);
 app.use("/api/courses", course);
 app.use("/api/actionPlans", actionPlans);
 app.use('/api/faqs', faqs);
-app.use('/api/users', users);
+// app.use('/api/users', users);
 
 
 
