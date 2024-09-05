@@ -74,15 +74,14 @@ app.use(cookies())
 
 
 
-const auth = require("./router/Login");
-const router = require('./router/Login');
+const auth = require("./router/Users");
+// const router = require('./router/Users');
 //routes
-app.use('/api/user' , require('./router/Login'));
+app.use('/api/user' , require('./router/Users'));
 app.use("/api/students", student);
 app.use("/api/courses", course);
 app.use("/api/actionPlans", actionPlans);
 app.use('/api/faqs', faqs);
-// app.use('/api/users', users);
 
 
 
