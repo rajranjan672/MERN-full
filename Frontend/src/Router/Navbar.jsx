@@ -103,8 +103,8 @@ function DrawerAppBar(props) {
           </Typography>
 
           <div class="dropdown">
-              <button class="dropbtn">Dropdown
-                <i class="fa fa-caret-down"></i>
+              <button class="dropbtn">Services
+                <i class="bi bi-caret-down"></i>
               </button>
               <div class="dropdown-content">
                 <a href="#">Link 1</a>
