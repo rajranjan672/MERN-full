@@ -81,6 +81,7 @@ const NewPlan = ({gett}) => {
   
        })
        handleClose()
+       //
 
        gett()
        console.log("subb")
