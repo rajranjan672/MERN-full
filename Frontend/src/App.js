@@ -99,7 +99,7 @@ try {
     </div>
     <div className='mt-3'>
     <Routes>
-       <Route path="/" element={<Navigate to="/home"/>} />
+       <Route path="/" element={<Navigate to="/dta"/>} />
         <Route path="/home" defaults element={<React.Suspense fallback='Loading...'>
           <LazyIntegration user ={data} />
         </React.Suspense>} />
