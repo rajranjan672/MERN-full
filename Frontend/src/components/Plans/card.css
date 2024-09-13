@@ -146,7 +146,7 @@ p {
     transform: scaleX(1);
 }
 .bt:hover {
-    color: white;
+    color: white !important;
 }
 
  .bt:hover::before {

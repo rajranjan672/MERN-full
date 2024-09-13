@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import "./card.css";
 import girl from "../../Assets/beautiful-girl-eating-vegetarian-lunch.png";
 import { FitScreen } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+
 
 const Data = () => {
+const navigate = useNavigate()
+
   return (
     <>
       <div className="data mt-0">
@@ -17,7 +21,8 @@ const Data = () => {
                 in, suscipit iure ullam aspernatur inventore quidem soluta!
                 Quas, soluta aliquam?
               </p>
-              <button className="bt">BUTTON</button>
+              
+              <button className="bt" onClick={() => navigate("/home")}>EXPLORE</button>
             </div>
             <div className="col-11 col-sm-11 col-md-6 col-lg-4 girl mt-5">
               <img
