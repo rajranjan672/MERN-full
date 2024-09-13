@@ -103,3 +103,46 @@
   .bt.active {
     background-color: blue;
   }
+
+  .data {
+    background-color: #a0376f !important;
+    height: 89vh ;
+}
+
+.data .girl {
+    bottom: 0px;
+    overflow: hidden !important;
+}
+
+p {
+    text-align: justify;
+}
+
+/* .data button {
+    font-size: 1.5em;
+    color: black;
+    padding: 5px 30px;
+    letter-spacing: 0.1em;
+    background-color: #08818a;
+    border: 2px solid black;
+}
+
+ a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    transform: scaleX(1);
+}
+
+ a:hover::before {
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    transform: scaleX(0);
+} */
