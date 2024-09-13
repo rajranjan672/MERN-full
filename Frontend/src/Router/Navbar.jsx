@@ -61,9 +61,10 @@ function DrawerAppBar(props) {
             </ListItemButton>
           </ListItem>
 
-           <ListItem  disablePadding>
+
+          <ListItem  disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText  ><NavLink to="/a" className="nav-item">About</NavLink></ListItemText>
+              <ListItemText  ><NavLink to="/dta" className="nav-item">dummy</NavLink></ListItemText>
             </ListItemButton>
           </ListItem>
         
@@ -117,6 +118,7 @@ function DrawerAppBar(props) {
               <Button><NavLink to="/home" className="nav-item">Home</NavLink></Button>
 
               <Button><NavLink to="/about" className="nav-item">About</NavLink></Button>
+              <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button>
               
 
  		    {/*

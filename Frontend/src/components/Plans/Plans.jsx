@@ -36,6 +36,9 @@ import { Link, useNavigate } from 'react-router-dom';
     const [visible, setVisible] = useState(4);
     const [isdark, setIsdark] = useState(false);
     const [data, setData] = useState({email: ''})
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [filteredData, setFilteredData] = useState([]);
+
 
     const navigate = useNavigate()
     
@@ -88,10 +91,19 @@ const handleChange =(event) => {
     //   }
     // };
 
-  useEffect(()=> {
-  getplans()
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
+          setData(res.data);
+          setFilteredData(res.data); // Initialize filteredData with fetched data
+        } catch (error) {
+          navigate('/login')
+        }
+      };
   
-  }, []);
+      fetchData();
+    }, []);
 
 
   const showMorePlans = () => {
@@ -104,6 +116,8 @@ const handleChange =(event) => {
     
      try{ const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
       setPlans(res.data)
+      setFilteredData(res.data); // Initialize filteredData with fetched data
+
       console.log(res.data)
      }
      catch {
@@ -154,6 +168,20 @@ const handleChange =(event) => {
    
   }
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    if (category === 'All') {
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter(item => item.category === category);
+      setFilteredData(filtered);
+    }
+  };
+
+  // Example categories (these might be dynamic based on your data)
+  const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
+
+
   return (
     <>
     <div className="plans">
@@ -170,26 +198,28 @@ const handleChange =(event) => {
       <CssBaseline />
      
 {/* <h3>{user.name}</h3> */}
+    <div className='d-flex justify-content-center'>
+      {categories.map((category) => (
+        <button className='btnn bg-light-green'
+          key={category}
+          onClick={() => handleCategoryChange(category)}
+          style={{ margin: '5px' }}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+
     <NewPlan gett={getplans} />
     <div className='inputss'>
     <input className='inputt' type="text"  placeholder='Search plans' onChange={event => {setQuery(event.target.value)}} />
     </div>
     <div className='container-fluid'>
                 <div className="row">
-                  <div className=''>
-                    
-                  </div>
-     {plans.slice(0, visible).filter(plan => {
-       if(query=== '') {
-         return plan;
-        
-       } else if (plan.title.toLowerCase().includes(query.toLowerCase())) {
-         return plan;
-       }
-    }) 
-    .map((plan) => {
-            return(
-       <Card key={plan.id} className='car   col-10 col-sm-5 col-md-5 col-lg-3 bg-primary my-1 py-1 mx-2 '>
+                
+     {filteredData.map((plan) => 
+            (
+       <Card key={plan.id} className='car   col-10 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
         {/* <Avatar className='text-uppercase' sx={{ bgcolor: avatarBgColor(plan) }} >
             {plan.title[0]}
         
@@ -231,7 +261,7 @@ const handleChange =(event) => {
        
     </Card>
     
-    )})}
+    ))}
     <div className='text-center'>
   <Button color='secondary'  variant='contained' onClick={showMorePlans}>Load More</Button>
   </div>

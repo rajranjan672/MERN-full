@@ -24,6 +24,7 @@ import "./App.css";
 import UpdateBook from './components/Plans/UpdateBook';
 import Footer from './components/Plans/Footer';
 import DrawerAppBar from './Router/Navbar';
+import Data from './components/Plans/Data';
 // import ServicesDropdown from './Router/ServicesDropdown';
 const LazyQuiz = React.lazy(() => import('./components/Plans/QUIZ'));
 const LazyProfile = React.lazy(() => import('./Router/Profile'))
@@ -122,7 +123,7 @@ try {
         <Route path="/login" element={<Login setAuth= {setAuth} auth ={auth}/>} />
 
         <Route path="/*" element={<Error />} />
-        
+        <Route path='/dta' element={<Data />} />
         
       </Routes>
     </div>

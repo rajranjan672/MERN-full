@@ -88,3 +88,18 @@
     bottom: 0 !important;
 }
 
+
+.bt {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .bt.active {
+    background-color: blue;
+  }
