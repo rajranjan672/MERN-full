@@ -118,7 +118,7 @@ function DrawerAppBar(props) {
               <Button><NavLink to="/home" className="nav-item">Home</NavLink></Button>
 
               <Button><NavLink to="/about" className="nav-item">About</NavLink></Button>
-              <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button>
+              {/* <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button> */}
               
 
  		    {/*
