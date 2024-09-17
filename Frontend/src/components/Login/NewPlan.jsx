@@ -107,7 +107,7 @@ const NewPlan = ({gett}) => {
     <>
     <div className='new'>
     <Button variant='contained' className='col-3 col-sm-3 col-md-2 co-lg-2 col-xl-2' onClick={handleClickOpen}>
-        Add Plan
+        Add Recipie
       </Button>
     </div>
     
@@ -118,7 +118,7 @@ const NewPlan = ({gett}) => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle>{"Add Your Recipie"}</DialogTitle>
         <DialogContent>
         <form class="row g-3 needs-validation" onSubmit={sub}>
         <div className="form-floating">
