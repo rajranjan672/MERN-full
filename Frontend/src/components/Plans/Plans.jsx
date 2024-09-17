@@ -38,6 +38,7 @@ import { Link, useNavigate } from 'react-router-dom';
     const [data, setData] = useState({email: ''})
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [filteredData, setFilteredData] = useState([]);
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
 
     const navigate = useNavigate()
@@ -168,8 +169,11 @@ const handleChange =(event) => {
    
   }
 
-  const handleCategoryChange = (category) => {
+  const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
+
+  const handleCategoryChange = (category, index) => {
     setSelectedCategory(category);
+    setSelectedIndex(index)
     if (category === 'All') {
       setFilteredData(data);
     } else {
@@ -178,8 +182,15 @@ const handleChange =(event) => {
     }
   };
 
+  const getButtonStyle = (index) => {
+    return {
+      backgroundColor: selectedIndex === index ? '#e64ca5': '#859174',
+      color: 'white',
+      margin: '5px'
+    }
+  }
+
   // Example categories (these might be dynamic based on your data)
-  const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
 
 
   return (
@@ -199,11 +210,11 @@ const handleChange =(event) => {
      
 {/* <h3>{user.name}</h3> */}
     <div className='d-flex justify-content-center'>
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <button className='btnn bg-light-green'
-          key={category}
-          onClick={() => handleCategoryChange(category)}
-          style={{ margin: '5px' }}
+          key={index}
+          onClick={() => handleCategoryChange(category, index)}
+          style={getButtonStyle(index)}
         >
           {category}
         </button>
@@ -226,8 +237,12 @@ const handleChange =(event) => {
           {/**/}
           {/* <img src={`http://localhost:3001/images/${plan.photo}`} alt='User' style={{width: '70&', height: '100px', margin: '10px'}} />  */}
           
-          <Typography gutterBottom variant="h5" component="div" className='title'>
+          <Typography gutterBottom variant="h5" component="div" className='title text-capitalize'>
             {plan.title}
+            <Link to={`/plandetails/` + plan._id}>
+            <i className="bi bi-eye float-end" style={{color: 'white'}} role='button'></i>
+
+            </Link>
           </Typography>
           <Typography variant='body2'>Type: {plan.category}</Typography>
           <Typography variant="body2" >

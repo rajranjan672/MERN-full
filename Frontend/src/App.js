@@ -25,6 +25,7 @@ import UpdateBook from './components/Plans/UpdateBook';
 import Footer from './components/Plans/Footer';
 import DrawerAppBar from './Router/Navbar';
 import Data from './components/Plans/Data';
+import PlanDetails from './components/Plans/PlanDetails';
 // import ServicesDropdown from './Router/ServicesDropdown';
 const LazyQuiz = React.lazy(() => import('./components/Plans/QUIZ'));
 const LazyProfile = React.lazy(() => import('./Router/Profile'))
@@ -108,6 +109,10 @@ try {
         </React.Suspense>}  />
         <Route path='/edit-plan/:id' element={<React.Suspense fallback='Loading...'>
           <UpdateBook  />
+        </React.Suspense> } />
+
+        <Route path='/plandetails/:id' element={<React.Suspense fallback='Loading...'>
+          <PlanDetails  />
         </React.Suspense> } />
 
         <Route path="/profile/:name" element={<React.Suspense fallback='Loading...'>
