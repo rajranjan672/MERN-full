@@ -240,11 +240,14 @@ const handleChange =(event) => {
           <Typography gutterBottom variant="h5" component="div" className='title text-capitalize'>
             {plan.title}
             <Link to={`/plandetails/` + plan._id}>
+            <Tooltip title="details">
             <i className="bi bi-eye float-end" style={{color: 'white'}} role='button'></i>
+
+            </Tooltip>
 
             </Link>
           </Typography>
-          <Typography variant='body2'>Type: {plan.category}</Typography>
+          <Typography variant='body2'>Country: {plan.category}</Typography>
           <Typography variant="body2" >
             {plan.description}
           </Typography>
@@ -258,15 +261,20 @@ const handleChange =(event) => {
            </Tooltip> 
           <div className='edit'>
           {/* <EditPlan  id={plan._id} title={plan.title} description={plan.description} /> */}
+
+          <Tooltip title="edit">
+
           <button className='editbtn'>
          
-            <Link to={`/edit-plan/` + plan._id}>
-            <i class="bi bi-pencil-square">
-          </i>
+         <Link to={`/edit-plan/` + plan._id}>
+         <i className="bi bi-pencil-square">
+       </i>
 
-            </Link>
-         
-     </button>
+         </Link>
+      
+          </button>
+          </Tooltip>
+          
           </div>
           
           </div>

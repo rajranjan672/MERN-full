@@ -105,9 +105,16 @@
   }
 
   .data {
-    background-color: #a7496a !important;
-    height: 89vh ;
+    display: flex;
+    background-color: #edf1f3 !important;
+    height:  fit-content !important ;
+    /* overflow: hidden; */
+    padding: 10px;
 }
+
+.data > * {
+    flex: 1 1 auto !important; /* Allow children to grow and shrink */
+  }
 
 .data .girl {
     bottom: 0px;
@@ -139,7 +146,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #f0aba2;
     z-index: -1;
     transform-origin: left;
     transition: transform 0.5s ease;
@@ -154,3 +161,61 @@ p {
     transition: transform 0.5s ease;
     transform: scaleX(0);
 }
+/* 
+ .shape {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+} */
+  
+ /* .shape:hover {
+    width: 150px;
+    height: 100px;
+    border-radius: 0;
+    color: rgb(253, 253, 32);
+     
+  }
+   */
+
+   .image-container {
+    /* margin-top: 100px; */
+    position: relative;
+    margin-top: 100px;
+    cursor: pointer;
+    overflow: hidden;
+   }
+
+   .image {
+    width: 100%;
+    height: 30vh;
+    transition: 0.3s ease;
+    overflow: hidden;
+   }
+
+   .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+    opacity: 0;
+   }
+
+   .overflow h1 {
+    color: white !important;
+    font-size: 40px;
+    /* text-align: center; */
+    /* margin-top: 50px; */
+   }
+
+   .image-container:hover .image {
+    transform: scale(1.1);
+    /* opacity: 0.7; */
+   }
+
+   .image-container:hover .overlay {
+    opacity: 1;
+   }

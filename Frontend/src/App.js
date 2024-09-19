@@ -25,12 +25,15 @@ import UpdateBook from './components/Plans/UpdateBook';
 import Footer from './components/Plans/Footer';
 import DrawerAppBar from './Router/Navbar';
 import Data from './components/Plans/Data';
-import PlanDetails from './components/Plans/PlanDetails';
+import Transition from './components/Plans/Transition';
+// import PlanDetails from './components/Plans/PlanDetails';
 // import ServicesDropdown from './Router/ServicesDropdown';
 const LazyQuiz = React.lazy(() => import('./components/Plans/QUIZ'));
 const LazyProfile = React.lazy(() => import('./Router/Profile'))
 const LazyIntegration = React.lazy(() => import('./components/Plans/Plans'))
 const About = React.lazy(() => import('./Router/About'))
+const PlanDetails = React.lazy(() => import('./components/Plans/PlanDetails'))
+
 const Login = React.lazy(() => import('./components/Login/Login'))
 
 const DUMMY_EXPENSES = [
@@ -98,7 +101,7 @@ try {
     {/* <ServicesDropdown /> */}
 
     </div>
-    <div className='mt-3'>
+    <div className='mt-3 h-100'>
     <Routes>
        <Route path="/" element={<Navigate to="/dta"/>} />
         <Route path="/home" defaults element={<React.Suspense fallback='Loading...'>
@@ -129,8 +132,11 @@ try {
 
         <Route path="/*" element={<Error />} />
         <Route path='/dta' element={<Data />} />
+        <Route path='/tr' element={<Transition />} />
+
         
       </Routes>
+      <Footer />
     </div>
      
 

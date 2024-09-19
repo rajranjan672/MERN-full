@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 // import DropdownMenu from './DropdownMenu';
 // import "./Dropdown.css"
 
@@ -25,6 +25,8 @@ function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isDropdownVisible, setDropdownVisible] = React.useState(false);
+const navigate = useNavigate()
+
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -42,7 +44,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor:"#c298d4" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        <Link to="/dta">Rec</Link>
       </Typography>
       <Divider />
       <List>
@@ -99,8 +101,10 @@ function DrawerAppBar(props) {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            onClick={() => navigate("/dta")}
+            role='button'
           >
-            MUI
+            REC
           </Typography>
 
           <div class="dropdown">
@@ -118,6 +122,10 @@ function DrawerAppBar(props) {
               <Button><NavLink to="/home" className="nav-item">Home</NavLink></Button>
 
               <Button><NavLink to="/about" className="nav-item">About</NavLink></Button>
+              <Button><NavLink to="/tr" className="nav-item">Tra</NavLink></Button>
+              <Button><NavLink to="/quiz" className="nav-item">quiz</NavLink></Button>
+
+
               {/* <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button> */}
               
 
