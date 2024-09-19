@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./card.css";
 import girl from "../../Assets/beautiful-girl-eating-vegetarian-lunch.png";
-import { FitScreen } from "@mui/icons-material";
+import { FitScreen, LocalDining, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import sweet from "../../Assets/sweet.jpeg";
 import { Chart } from "react-google-charts";
@@ -43,6 +43,23 @@ const Data = () => {
     <>
       <div className="data">
         <div className="container-fluid p-0">
+          <div className="row justify-content-between my-2 mx-auto">
+            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 ">
+              <p className="my-auto text-white"><LocalDining /> Recipies</p>
+            </div>
+
+            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
+              <p className="my-auto"><Person /> Users</p>
+            </div>
+
+            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
+              <p className="my-auto"><Person /> Users</p>
+            </div>
+
+            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
+              <h5>Recipies</h5>
+            </div>
+          </div>
           <div className="row m-0 h-25 justify-content-between">
             <div className="col-10 col-sm-10 col-md-5 col-lg-4 mt-5 pt-1 px-0">
               <h1 className="text-black">Explore Your Ideas Here with US</h1>

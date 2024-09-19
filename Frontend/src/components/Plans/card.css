@@ -219,3 +219,19 @@ p {
    .image-container:hover .overlay {
     opacity: 1;
    }
+
+   .card1 {
+    background-color: #f8d94e !important;
+   }
+
+   .card2 {
+    background-color: #3aedf3 !important;
+   }
+   
+   .card3 {
+    background-color: #f86fb4 !important;
+   }
+   
+   .card4 {
+    background-color: #5ef07e !important;
+   }
