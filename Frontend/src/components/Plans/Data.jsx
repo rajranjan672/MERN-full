@@ -59,6 +59,7 @@ const Data = () => {
             <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
               <h5>Recipies</h5>
             </div>
+            
           </div>
           <div className="row m-0 h-25 justify-content-between">
             <div className="col-10 col-sm-10 col-md-5 col-lg-4 mt-5 pt-1 px-0">
