@@ -124,7 +124,6 @@ const navigate = useNavigate()
               <Button><NavLink to="/about" className="nav-item">About</NavLink></Button>
 
 
-              {/* <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button> */}
               
 
  		    {/*
