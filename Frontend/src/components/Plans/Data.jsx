@@ -43,7 +43,7 @@ const Data = () => {
     <>
       <div className="data">
         <div className="container-fluid p-0">
-          <div className="row m-0">
+          <div className="row m-0 h-25 justify-content-between">
             <div className="col-10 col-sm-10 col-md-5 col-lg-4 mt-5 pt-1 px-0">
               <h1 className="text-black">Explore Your Ideas Here with US</h1>
               <p className="text-black">
@@ -56,30 +56,15 @@ const Data = () => {
                 EXPLORE
               </button>
             </div>
-            <div className="col-11 col-sm-11 col-md-6 col-lg-4 girl mt-5">
+            <div className="col-11 col-sm-11 col-md-6 col-lg-5 girl mt-2">
               <img
                 className="col-12 col-sm-10 col-md-12 col-lg-11"
                 src={girl}
-                height={FitScreen}
+                height={"70%"}
               />
             </div>
 
-            <div className="col-10 col-sm-10 col-md-4 col-lg-4 girl mt-5 h-100">
-              <div className="mt-5 pt-5 col-6">
-                <h4 className="text-black">Spicy Food</h4>
-                <p className="text-black-50">
-                  Explore your fantacies of spicy foods
-                </p>
-                <a href="" className="text-primary">
-                  Visit here <bi className="bi bi-arrow-right" />
-                </a>
-              </div>
-
-              <div className="mt-5 ms-5 text-center">
-                <h4 className="text-black">Spicy Food</h4>
-                <p className="text-black-50 text-center">Asdgdbgd</p>
-              </div>
-            </div>
+          
           </div>
 
           {/* <div className="row"> */}
@@ -95,19 +80,19 @@ const Data = () => {
               </div>
 
               <div className=" row justify-content-between">
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-12 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Indian</h1>
                   </div>
                 </div>
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-12 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Chinese</h1>
                   </div>
                 </div>
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-12 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Maxican</h1>
@@ -120,7 +105,7 @@ const Data = () => {
           <div className="row justify-content-between px-2">
           <h3>Food data</h3>
 
-            <div className="card col-11 col-sm-11 col-md-11 col-lg-7 py-2 mb-3">
+            <div className="card col-12 col-sm-12 col-md-12 col-lg-7 py-2 mb-3">
             <Chart
       chartType="Bar"
       width="100%"
@@ -130,7 +115,7 @@ const Data = () => {
     />
             </div>
 
-            <div className="card col-10 col-sm-11 col-md-11 col-lg-4 justify-content-end mb-3">
+            <div className="card col-12 col-sm-12 col-md-12 col-lg-4 justify-content-end mb-3">
              <Chart
       chartType="PieChart"
       width="100%"

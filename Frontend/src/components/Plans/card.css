@@ -107,7 +107,7 @@
   .data {
     display: flex;
     background-color: #edf1f3 !important;
-    height:  fit-content !important ;
+    /* height:  fit-content !important ; */
     /* overflow: hidden; */
     padding: 10px;
 }

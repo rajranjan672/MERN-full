@@ -25,7 +25,6 @@ import UpdateBook from './components/Plans/UpdateBook';
 import Footer from './components/Plans/Footer';
 import DrawerAppBar from './Router/Navbar';
 import Data from './components/Plans/Data';
-import Transition from './components/Plans/Transition';
 // import PlanDetails from './components/Plans/PlanDetails';
 // import ServicesDropdown from './Router/ServicesDropdown';
 const LazyQuiz = React.lazy(() => import('./components/Plans/QUIZ'));
@@ -132,7 +131,6 @@ try {
 
         <Route path="/*" element={<Error />} />
         <Route path='/dta' element={<Data />} />
-        <Route path='/tr' element={<Transition />} />
 
         
       </Routes>

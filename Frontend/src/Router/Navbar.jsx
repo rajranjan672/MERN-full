@@ -122,8 +122,6 @@ const navigate = useNavigate()
               <Button><NavLink to="/home" className="nav-item">Home</NavLink></Button>
 
               <Button><NavLink to="/about" className="nav-item">About</NavLink></Button>
-              <Button><NavLink to="/tr" className="nav-item">Tra</NavLink></Button>
-              <Button><NavLink to="/quiz" className="nav-item">quiz</NavLink></Button>
 
 
               {/* <Button><NavLink to="/dta" className="nav-item">dta</NavLink></Button> */}
