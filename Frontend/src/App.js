@@ -127,6 +127,10 @@ try {
         
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setAuth= {setAuth} auth ={auth}/>} />
+        <Route path="/about" element={<React.Suspense >
+          <About />
+        </React.Suspense>}
+         />
 
         <Route path="/users" element={<React.Suspense >
           <Users />
