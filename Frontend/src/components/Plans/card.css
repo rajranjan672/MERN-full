@@ -239,9 +239,11 @@ p {
     .card1:hover {
         box-shadow: 0 0 20px #b0be30;
     }
+    
     .card2:hover {
         box-shadow: 0 0 20px  #20aaaf;
     }
+
     .card3:hover  {
         box-shadow: 0 0 20px  #9b0d9b;
 
