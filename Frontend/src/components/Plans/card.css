@@ -237,7 +237,6 @@ p {
    }
 
     .card1:hover {
-        /* color: rgb(164, 151, 211) !important; */
         box-shadow: 0 0 20px #b0be30;
     }
     .card2:hover {
