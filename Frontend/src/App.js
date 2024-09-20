@@ -34,6 +34,7 @@ const About = React.lazy(() => import('./Router/About'))
 const PlanDetails = React.lazy(() => import('./components/Plans/PlanDetails'))
 
 const Login = React.lazy(() => import('./components/Login/Login'))
+const Users = React.lazy(() => import("./components/Users/Users"))
 
 const DUMMY_EXPENSES = [
   { id: "e1", title: "Groceries", amount: "20.40", date: new Date() },
@@ -102,7 +103,7 @@ try {
     </div>
     <div className='mt-3 h-100'>
     <Routes>
-       <Route path="/" element={<Navigate to="/dta"/>} />
+       <Route path="/" element={<Navigate to="/dta" replace/>} />
         <Route path="/home" defaults element={<React.Suspense fallback='Loading...'>
           <LazyIntegration user ={data} />
         </React.Suspense>} />
@@ -123,14 +124,17 @@ try {
         <Route path="/quiz" element={<React.Suspense fallback='Loading...'>
           <LazyQuiz />
         </React.Suspense>}  />
-        <Route path="/about" element={<React.Suspense >
-          <About />
-        </React.Suspense>} />
+        
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setAuth= {setAuth} auth ={auth}/>} />
 
-        <Route path="/*" element={<Error />} />
+        <Route path="/users" element={<React.Suspense >
+          <Users />
+        </React.Suspense>} />
         <Route path='/dta' element={<Data />} />
+
+        <Route path="/*" element={<Error />} />
+
 
         
       </Routes>

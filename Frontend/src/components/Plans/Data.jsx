@@ -6,6 +6,8 @@ import { FitScreen, LocalDining, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import sweet from "../../Assets/sweet.jpeg";
 import { Chart } from "react-google-charts";
+import useFetch from "../Custom hooks/Planfetch";
+import UsersCustom from "../Custom hooks/UsersCustom";
 
 export const data = [
   ["Year", "Sales", "Expenses", "Profit"],
@@ -22,7 +24,7 @@ export const options = {
   },
 };
 
-export const data1 = [
+export const data2 = [
   ["Task", "Hours per Day"],
   ["Work", 11],
   ["Eat", 5],
@@ -39,24 +41,35 @@ const Data = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
+
+
+  const {data1} = useFetch();
+  const {users} = UsersCustom()
+  console.log('re',{data1})
+
+
+  console.log('dt',data)
+
   return (
     <>
       <div className="data">
+       
         <div className="container-fluid p-0">
-          <div className="row justify-content-between my-2 mx-auto">
-            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 ">
-              <p className="my-auto text-white"><LocalDining /> Recipies</p>
+          <div className="row justify-content-between my-3 mx-auto">
+            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 " role="button" >
+              <p className="my-auto text-white"><LocalDining /><span className="text-primary">{data1.length}</span> Recipies</p>
+            </div>
+         
+
+            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button" onClick={() => navigate("/users")}>
+              <p className="my-auto "><Person /><span>{users.length}</span> <span className="mx-auto">Users</span></p>
             </div>
 
-            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
+            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button">
               <p className="my-auto"><Person /> Users</p>
             </div>
 
-            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
-              <p className="my-auto"><Person /> Users</p>
-            </div>
-
-            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4">
+            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button">
               <h5>Recipies</h5>
             </div>
             
@@ -138,7 +151,7 @@ const Data = () => {
       chartType="PieChart"
       width="100%"
       height="400px"
-      data={data1}
+      data={data2}
       options={options1}
     />
             </div>

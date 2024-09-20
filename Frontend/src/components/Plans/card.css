@@ -235,3 +235,19 @@ p {
    .card4 {
     background-color: #5ef07e !important;
    }
+
+    .card1:hover {
+        /* color: rgb(164, 151, 211) !important; */
+        box-shadow: 0 0 20px #b0be30;
+    }
+    .card2:hover {
+        box-shadow: 0 0 20px  #20aaaf;
+    }
+    .card3:hover  {
+        box-shadow: 0 0 20px  #9b1d9b;
+
+    }
+    .card4:hover {
+        box-shadow: 0 0 20px  #33941a;
+
+    }

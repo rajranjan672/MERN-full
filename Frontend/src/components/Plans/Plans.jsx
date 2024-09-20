@@ -97,10 +97,14 @@ const handleChange =(event) => {
         try {
           const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
           setData(res.data);
-          setFilteredData(res.data); // Initialize filteredData with fetched data
+          setFilteredData(res.data); 
+          console.log('plan',res.data)// Initialize filteredData with fetched data
         } catch (error) {
+          console.error('Error fetching data:', error);
           navigate('/login')
-        }
+
+      }
+        
       };
   
       fetchData();
@@ -171,16 +175,17 @@ const handleChange =(event) => {
 
   const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
 
-  const handleCategoryChange = (category, index) => {
+  const handleCategoryChange = useCallback((category, index) => {
     setSelectedCategory(category);
     setSelectedIndex(index)
     if (category === 'All') {
+
       setFilteredData(data);
     } else {
       const filtered = data.filter(item => item.category === category);
       setFilteredData(filtered);
     }
-  };
+  }, [data]);
 
   const getButtonStyle = (index) => {
     return {
@@ -195,9 +200,9 @@ const handleChange =(event) => {
 
   return (
     <>
-    <div className="plans">
+    <div className="plans h-100">
     <div className='container-fluid'>
-      <div className='row'>
+      <div className='row h-100'>
       {/* <FormGroup className='col-2'>
 <FormControlLabel control={<Switch checked={isdark} onChange={handleChange} color='error'/>}
         label={`${isdark? 'Dark Mode':'Light Mode'}`} />

@@ -131,6 +131,24 @@ const getUser = async(req,res,next) => {
 
 router.get('/get', verifyToken, getUser)
 
+const getusers = async(req, res, next) => {
+    let response = [];
+    // let isActive = false
+
+    UserModel.find((error, plans) => {
+        if(error) {
+            response = { success: false, message: "something went wrong" };
+        }else {
+            response =   plans= plans;
+        };
+
+        return res.send(response)
+    });
+};
+
+router.get('/allusers', getusers)
+
+
 
 router.get('/logout', verifyToken, function(req, res){
   cookie = req.cookies;
