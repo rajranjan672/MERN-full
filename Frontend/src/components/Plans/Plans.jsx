@@ -27,15 +27,17 @@ import { Link, useNavigate } from 'react-router-dom';
 // },
  const Plans = ({user}) => {
 
-  const [plans, setPlans] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('All'); // Initialize with 'All'
+  
+    const [plans, setPlans] = useState([])
     const [ query, setQuery] = useState("")
     const [page, setPage] = useState(1)
     const [open, setOpen] = React.useState(false);
     const { enqueueSnackbar } = useSnackbar();
     const [visible, setVisible] = useState(4);
     const [isdark, setIsdark] = useState(false);
+    const [data, setData] = useState({email: ''})
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [filteredData, setFilteredData] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(0)
 
 
@@ -48,6 +50,10 @@ const darkTheme = createTheme({
     mode: isdark ? 'dark' : 'light',
   },
 });
+
+const handleChange =(event) => {
+  setIsdark(event.target.checked)
+}
 
 
     const ExpandMore = styled((props) => {
@@ -87,33 +93,24 @@ const darkTheme = createTheme({
     // };
 
     useEffect(() => {
-      getplans()
-      // const fetchData = async () => {
-      //     try {
-      //         const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
-      //         setPlans(res.data);
-      //         setFilteredData(res.data); // Initialize filtered data with all plans
-      //     } catch (error) {
-      //         console.error('Error fetching data:', error);
-      //         navigate('/login');
-      //     }
-      // };
+     
+  
+      fetchData();
+    }, []);
 
-      // fetchData();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
+        setData(res.data.data);
+        setFilteredData(res.data.data); 
+        console.log('plan',res.data.data)// Initialize filteredData with fetched data
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        navigate('/login')
 
-  // Update filtered data based on selected category
-  const handleCategoryChange = useCallback((category) => {
-      setSelectedCategory(category);
-      if (category === 'All') {
-          setFilteredData(plans); // Show all plans
-          console.log(plans)
-          console.log(filteredData)
-      } else {
-          const filtered = plans.filter(item => item.category === category);
-          setFilteredData(filtered); // Set to filtered results
-      }
-  }, [plans]);
+    }
+      
+    };
 
 
   const showMorePlans = () => {
@@ -122,19 +119,19 @@ const darkTheme = createTheme({
 
 
 
-  const getplans = async() => {
+  // const getplans = async() => {
     
-     try{ const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
-      setPlans(res.data.data)
-      setFilteredData(res.data.data); // Initialize filteredData with fetched data.data
+  //    try{ const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
+  //     setPlans(res.data)
+  //     setFilteredData(res.data); // Initialize filteredData with fetched data
 
-      console.log(res.data.data)
-     }
-     catch {
-      navigate("/login")
-     }
+  //     console.log(res.data)
+  //    }
+  //    catch {
+  //     navigate("/login")
+  //    }
    
-  }
+  // }
 
 
   const handlechange = useCallback(
@@ -164,7 +161,7 @@ const darkTheme = createTheme({
   if (result.isConfirmed) {
  const result = await axios.delete('http://localhost:3001/api/actionPlans/deleteActionPlan/'+ id)
     .then((result) => {
-      getplans()
+      fetchData()
     enqueueSnackbar('Plan Deleted!', { variant:'success' });
 
     }).catch (() => {
@@ -180,8 +177,17 @@ const darkTheme = createTheme({
 
   const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
 
-  
+  const handleCategoryChange = useCallback((category, index) => {
+    setSelectedCategory(category);
+    setSelectedIndex(index)
+    if (category === 'All') {
 
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter(item => item.category === category);
+      setFilteredData(filtered);
+    }
+  }, [data]);
 
   const getButtonStyle = (index) => {
     return {
@@ -222,7 +228,7 @@ const darkTheme = createTheme({
       ))}
     </div>
 
-    <NewPlan gett={getplans} />
+    <NewPlan gett={fetchData} />
     <div className='inputss'>
     <input className='inputt' type="text"  placeholder='Search plans' onChange={event => {setQuery(event.target.value)}} />
     </div>
@@ -234,7 +240,6 @@ const darkTheme = createTheme({
        <Card key={plan.id} className='car   col-10 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
         {/* <Avatar className='text-uppercase' sx={{ bgcolor: avatarBgColor(plan) }} >
             {plan.title[0]}
-
         
           {/**/}
           {/* <img src={`http://localhost:3001/images/${plan.photo}`} alt='User' style={{width: '70&', height: '100px', margin: '10px'}} />  */}

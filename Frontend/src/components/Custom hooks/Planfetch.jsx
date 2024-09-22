@@ -13,8 +13,8 @@ const useFetch = (url) => {
         const res = await axios.get('http://localhost:3001/api/actionPlans/getActionPlans');
        
         
-        setData(res.data);
-        console.log(`dt`, res.data)
+        setData(res.data.data);
+        console.log(`dt`, res.data.data)
       } catch (err) {
         setError(err);
       } finally {
