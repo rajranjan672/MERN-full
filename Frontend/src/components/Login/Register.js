@@ -30,11 +30,11 @@ const Register = () => {
 
   return (
     <>
-    <div className='register  gradient-form'>
-    <div className="container py-3">
-      <div className="row d-flex justify-content-center align-items-center h-100">
+    <div className='register  gradient-form h-100'>
+    <div className="container">
+      <div className="row d-flex justify-content-center align-items-center">
         <div className="col-xl-10">
-          <div className="card rounded-3 text-black">
+          <div className="card rounded-3 text-black my-top">
             <div className="row g-0">
               <div className="col-lg-6">
                 <div className="card-body p-md-5 mx-md-4">

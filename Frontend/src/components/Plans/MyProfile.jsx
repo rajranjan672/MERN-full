@@ -51,9 +51,9 @@ const MyProfile = () => {
         <h5>Email: {data.email}</h5>
         <h5>Address: Hauz Khus, New Delhi</h5>
         <div className='d-flex justify-content-center'>
-        <i class=" justify-content-center bi bi-instagram"></i>
-        <i class="bi bi-twitter-x"></i>
-        <i class="bi bi-twitter"></i>
+        <i className=" justify-content-center bi bi-instagram"></i>
+        <i className="bi bi-twitter-x"></i>
+        <i className="bi bi-twitter"></i>
         </div>
     </Paper>
         </div>

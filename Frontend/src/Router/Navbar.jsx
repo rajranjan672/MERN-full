@@ -71,11 +71,11 @@ const navigate = useNavigate()
           </ListItem>
         
       </List>
-      <li class="nav-item dropdown"> <a class="nav-link" href="#">  Hover me  </a>
- 		    <ul class="dropdown-menu">
- 			  <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
- 			  <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
- 			  <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+      <li className="nav-item dropdown"> <a className="nav-link" href="#">  Hover me  </a>
+ 		    <ul className="dropdown-menu">
+ 			  <li><a className="dropdown-item" href="#"> Submenu item 1</a></li>
+ 			  <li><a className="dropdown-item" href="#"> Submenu item 2 </a></li>
+ 			  <li><a className="dropdown-item" href="#"> Submenu item 3 </a></li>
  		    </ul>
  		</li>
     </Box>
@@ -107,11 +107,11 @@ const navigate = useNavigate()
             REC
           </Typography>
 
-          <div class="dropdown">
-              <button class="dropbtn">Services
-                <i class="bi bi-caret-down"></i>
+          <div className="dropdown">
+              <button className="dropbtn">Services
+                <i className="bi bi-caret-down"></i>
               </button>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
                 <a href="#">Link 3</a>
@@ -218,7 +218,7 @@ export default DrawerAppBar;
 
 //              <li><NavLink to="/about" className=" nav-item" onClick={handleShowNavbar}>About Us</NavLink></li>
 //              <li><NavLink to="/quiz" className=" nav-item" onClick={handleShowNavbar}>QUIZ</NavLink></li>
-//              <li class="nav-item dropdown"> <a class="nav-link" href="#">  Hover me  </a>
+//              <li ="nav-item dropdown"> <a class="nav-link" href="#">  Hover me  </a>
 // 		    <ul class="dropdown-menu">
 // 			  <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
 // 			  <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
@@ -234,7 +234,7 @@ export default DrawerAppBar;
 
 //              <ul>
 //     <div className="dropdown" style={{float: "right"}}>
-//   <button className="dropbtn">{data.name}</button>
+//   <button Name="dropbtn">{data.name}</button>
 
 //   <div className="dropdown-content">
 //    <button type="button" className="btn btn-warning" onClick={logout}>Logout<i className="bi bi-arrow-{data.username}"></i></button>

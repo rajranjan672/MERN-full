@@ -11,6 +11,8 @@ router.post('/register',[
     body('name').notEmpty().isAlphanumeric().isLength(3,20),
     body('email').isEmail(),
     body('password').isLength({min:8}),
+    body('city').notEmpty().isAlphanumeric().isLength(3,20),
+
 
 
 ] ,async (req, res) => {
@@ -35,6 +37,8 @@ router.post('/register',[
         name: req.body.name,
         email: req.body.email,
         password: secPassword,
+        city: req.body.city,
+        
 
 
     });

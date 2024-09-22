@@ -48,9 +48,9 @@ const Home = () => {
      <h5><span className='text-danger'>City:</span>  {data.city}</h5>
 
       <div className='d-flex justify-content-center'>
-      <i class=" justify-content-center bi bi-instagram"></i>
-      <i class="bi bi-twitter-x"></i>
-      <i class="bi bi-twitter"></i>
+      <i className=" justify-content-center bi bi-instagram"></i>
+      <i className="bi bi-twitter-x"></i>
+      <i className="bi bi-twitter"></i>
      </div>
 
       </div>

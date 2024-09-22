@@ -120,7 +120,7 @@ const NewPlan = ({gett}) => {
       >
         <DialogTitle>{"Add Your Recipie"}</DialogTitle>
         <DialogContent>
-        <form class="row g-3 needs-validation" onSubmit={sub}>
+        <form className="row g-3 needs-validation" onSubmit={sub}>
         <div className="form-floating">
                       <input type="text" name='title' id="title" className="form-control" required
                         placeholder="title" onChange={(e) => 
@@ -128,16 +128,16 @@ const NewPlan = ({gett}) => {
                       <label className="form-label" htmlFor="title">Title</label>
 
                     </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" name='description' id="description" placeholder="name@example.com"
+          <div className="form-floating mb-3">
+            <input type="text" className="form-control" name='description' id="description" placeholder="name@example.com"
             onChange={(e) => 
               setData({...data, [e.target.name]: e.target.value})} />
               
               <label htmlFor="description">Description</label>
 
           </div>
-          <div class="form-floating">
-          <select class="form-select" name='category' aria-label="Floating label select example" onChange={(e) => 
+          <div className="form-floating">
+          <select className="form-select" name='category' aria-label="Floating label select example" onChange={(e) => 
                         setData({...data, [e.target.name]: e.target.value})} >
             <option selected value="">Open this select menu</option>
             <option value="Indian">Indian</option>
@@ -146,7 +146,7 @@ const NewPlan = ({gett}) => {
           </select>
           <label htmlFor="floatingSelectGrid">Category</label>
           </div>
-          <div class="invalid-feedback">
+          <div className="invalid-feedback">
             Please provide a valid city.
           </div>
 

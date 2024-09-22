@@ -55,7 +55,7 @@ const Login = ({setAuth, auth}) => {
 
   return (
     <>
-    <div className="register gradient-form container-fluid">
+    <div className="register gradient-form container-fluid h-100">
   
 
       <div className="row d-flex justify-content-center align-items-center">
