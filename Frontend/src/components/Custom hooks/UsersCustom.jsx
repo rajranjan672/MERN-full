@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 const UsersCustom = () => {
     const [users, setData] = useState([]);
@@ -24,7 +24,11 @@ const UsersCustom = () => {
       fetchData();
     }, []);
   
-    return { users, loading, error };
-}
+    const memoizedUsers = useMemo(() => {
+      return users;
+    }, [users]);
+  
+    return { users: memoizedUsers, loading, error };
+  };
 
 export default UsersCustom

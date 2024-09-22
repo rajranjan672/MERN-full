@@ -40,20 +40,24 @@ exports.createActionPlans = async( req, res, next) => {
 
 
 
-exports.getActionPlans = async(req, res, next) => {
-    let response = [];
-    // let isActive = false
+exports.getActionPlans = async (req, res, next) => {
+    try {
+        const plans = await ActionPlanCollection.find(); // Await the result
 
-    ActionPlanCollection.find((error, plans) => {
-        if(error) {
-            response = { success: false, message: "something went wrong" };
-        }else {
-            response =   plans= plans;
-        };
+        if (!plans || plans.length === 0) {
+            return res.status(404).json({ success: false, message: "No action plans found." });
+        }
 
-        return res.send(response)
-    });
+        return res.json({ success: true, data: plans }); // Send response only once
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        // Ensure only one response is sent
+        if (!res.headersSent) {
+            return res.status(500).json({ success: false, message: "Something went wrong" });
+        }
+    }
 };
+
 
 exports.findbyid = async(req,res) => {
     const id = req.params.id

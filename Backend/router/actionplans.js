@@ -57,18 +57,24 @@ function isValidUser(req, res, next) {
 // });
 
 
-const verifyToken = async(req, res, next) => {
+
+const verifyToken = async (req, res, next) => {
     const token = req.cookies.access_token;
-  
-      jwt.verify((token), JWT_SECRET, (err, user) => {
-        if(err) {
-          return res.status(400).json({message: "Invalid token"})
+
+    if (!token) {
+        return res.status(401).json({ message: "No token provided, unauthorized." });
+    }
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: "Invalid token" }); // Forbidden
         }
-        console.log(user.id)
-        req.id = user.id
-      })
-      next()
-  };
+
+        req.id = user.id; // Attach user id to the request
+        next(); // Only call next if the token is valid
+    });
+};
+
   router.post("/createActionPlans", verifyToken,
                 ActionPlansController.createActionPlans) 
 

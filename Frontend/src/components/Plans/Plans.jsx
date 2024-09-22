@@ -27,17 +27,15 @@ import { Link, useNavigate } from 'react-router-dom';
 // },
  const Plans = ({user}) => {
 
-  
-    const [plans, setPlans] = useState([])
+  const [plans, setPlans] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All'); // Initialize with 'All'
     const [ query, setQuery] = useState("")
     const [page, setPage] = useState(1)
     const [open, setOpen] = React.useState(false);
     const { enqueueSnackbar } = useSnackbar();
     const [visible, setVisible] = useState(4);
     const [isdark, setIsdark] = useState(false);
-    const [data, setData] = useState({email: ''})
-    const [selectedCategory, setSelectedCategory] = useState('All');
-    const [filteredData, setFilteredData] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(0)
 
 
@@ -50,10 +48,6 @@ const darkTheme = createTheme({
     mode: isdark ? 'dark' : 'light',
   },
 });
-
-const handleChange =(event) => {
-  setIsdark(event.target.checked)
-}
 
 
     const ExpandMore = styled((props) => {
@@ -93,22 +87,33 @@ const handleChange =(event) => {
     // };
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
-          setData(res.data);
-          setFilteredData(res.data); 
-          console.log('plan',res.data)// Initialize filteredData with fetched data
-        } catch (error) {
-          console.error('Error fetching data:', error);
-          navigate('/login')
+      getplans()
+      // const fetchData = async () => {
+      //     try {
+      //         const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
+      //         setPlans(res.data);
+      //         setFilteredData(res.data); // Initialize filtered data with all plans
+      //     } catch (error) {
+      //         console.error('Error fetching data:', error);
+      //         navigate('/login');
+      //     }
+      // };
 
+      // fetchData();
+  }, []);
+
+  // Update filtered data based on selected category
+  const handleCategoryChange = useCallback((category) => {
+      setSelectedCategory(category);
+      if (category === 'All') {
+          setFilteredData(plans); // Show all plans
+          console.log(plans)
+          console.log(filteredData)
+      } else {
+          const filtered = plans.filter(item => item.category === category);
+          setFilteredData(filtered); // Set to filtered results
       }
-        
-      };
-  
-      fetchData();
-    }, []);
+  }, [plans]);
 
 
   const showMorePlans = () => {
@@ -120,10 +125,10 @@ const handleChange =(event) => {
   const getplans = async() => {
     
      try{ const res = await axios.get(`http://localhost:3001/api/actionPlans/getActionPlans`);
-      setPlans(res.data)
-      setFilteredData(res.data); // Initialize filteredData with fetched data
+      setPlans(res.data.data)
+      setFilteredData(res.data.data); // Initialize filteredData with fetched data.data
 
-      console.log(res.data)
+      console.log(res.data.data)
      }
      catch {
       navigate("/login")
@@ -175,17 +180,8 @@ const handleChange =(event) => {
 
   const categories = ['All', 'Indian', 'Chinese', 'Maxician'];
 
-  const handleCategoryChange = useCallback((category, index) => {
-    setSelectedCategory(category);
-    setSelectedIndex(index)
-    if (category === 'All') {
+  
 
-      setFilteredData(data);
-    } else {
-      const filtered = data.filter(item => item.category === category);
-      setFilteredData(filtered);
-    }
-  }, [data]);
 
   const getButtonStyle = (index) => {
     return {
@@ -238,6 +234,7 @@ const handleChange =(event) => {
        <Card key={plan.id} className='car   col-10 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
         {/* <Avatar className='text-uppercase' sx={{ bgcolor: avatarBgColor(plan) }} >
             {plan.title[0]}
+
         
           {/**/}
           {/* <img src={`http://localhost:3001/images/${plan.photo}`} alt='User' style={{width: '70&', height: '100px', margin: '10px'}} />  */}

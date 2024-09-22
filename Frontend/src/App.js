@@ -63,27 +63,27 @@ const [auth, setAuth] = useState(false)
 const [data, setData] = useState([])
 const navigate = useNavigate()
 
-useEffect(() => {
-gett()
-}, [setData])
+// useEffect(() => {
+// gett()
+// }, [setData])
 
 
-const gett = async(req,res) => {
-try {
-  await axios.get("http://localhost:3001/api/user/get", {withCredentials: true}).then((ress) => {
-  setData(ress.data.user)
-  console.log(ress.data.user.name)
-}).then(() => {
-  setAuth(true)
-  console.log(auth)
+// const gett = async(req,res) => {
+// try {
+//   await axios.get("http://localhost:3001/api/user/get", {withCredentials: true}).then((ress) => {
+//   setData(ress.data.user)
+//   console.log(ress.data.user.name)
+// }).then(() => {
+//   setAuth(true)
+//   console.log(auth)
 
-})
+// })
 
-} catch {
-  // navigate("/login")
-}
+// } catch {
+//   // navigate("/login")
+// }
 
-}
+// }
 
 
 
