@@ -56,20 +56,20 @@ const Data = () => {
        
         <div className="container-fluid p-0">
           <div className="row justify-content-between my-3 mx-auto">
-            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 " role="button" >
+            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1 " role="button" >
               <p className="my-auto text-white"><LocalDining /><span className="text-primary">{data1.length}</span> Recipies</p>
             </div>
          
 
-            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button" onClick={() => navigate("/users")}>
+            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button" onClick={() => navigate("/users")}>
               <p className="my-auto "><Person /><span>{users.length}</span> <span className="mx-auto">Users</span></p>
             </div>
 
-            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button">
+            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button">
               <p className="my-auto"><Person /> Users</p>
             </div>
 
-            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4" role="button">
+            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button">
               <h5>Recipies</h5>
             </div>
             
