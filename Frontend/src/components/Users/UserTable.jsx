@@ -6,11 +6,12 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
     return (
         <div className="container-fluid">
        <div className="row h-100 my-5">
-        <div className="card col-sm-12 col-md-2 col-lg-2 h-100">
-            <button>H</button>
+        <div className="card col-sm-12 col-md-2 col-lg-2 h-100 p-2">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque ratione, accusamus quae harum nam praesentium! Labore sequi officiis est.</p>
+            <button>H</button>
+        
         </div>
-        <div className="card col-12 col-sm-12 col-md-8 col-lg-9 h-100 ">
+        <div className="card col-12 col-sm-12 col-md-10 col-lg-10 h-100 ">
             
             <FormControl className="my-2">
             <InputLabel id="demo-simple-select-label">{selectedCountry ? selectedCountry : 'All Countries'}</InputLabel>
