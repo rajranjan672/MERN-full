@@ -1,9 +1,12 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useEffect, useState } from "react";
 import "./Users.css"
+import { useNavigate } from "react-router-dom";
 
 const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries }) => {
     const [sortedUsers, setSortedUsers] = useState([]);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (users.length) {
@@ -21,7 +24,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
 
             <div className="card p-2 my-2">
             <h5 className="text-center">Food Recipies</h5>
-            <button className="explore btn btn-info">Explore</button>
+            <button className="explore btn btn-info" onClick={() => navigate("/home")}>Explore</button>
             </div>
 
             <div className="card p-2 my-2">
@@ -35,7 +38,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
             
             <FormControl className="my-2">
             <InputLabel id="demo-simple-select-label">{selectedCountry ? selectedCountry : 'All Countries'}</InputLabel>
-            <Select className="col-2 my-2"  id="demo-simple-select"
+            <Select className="col-2 my-2 text-uppercase"  id="demo-simple-select"
             label="Country"
              labelId="demo-simple-select-label" value={selectedCountry}
               onChange={(e) => onCountryChange(e.target.value)}>
@@ -43,7 +46,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                         <em>All Countries</em>
                     </MenuItem>
                 {uniqueCountries.map((country, index) => (
-                    <MenuItem key={index} value={country}>{country}</MenuItem>
+                    <MenuItem  className="text-uppercase" key={index} value={country}>{country}</MenuItem>
                 ))}
             </Select>
             </FormControl>

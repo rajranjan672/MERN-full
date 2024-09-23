@@ -216,7 +216,16 @@ const handleChange =(event) => {
       <CssBaseline />
      
 {/* <h3>{user.name}</h3> */}
-    <div className='d-flex justify-content-center'>
+  <div className="card col-2">
+    <h3>sdg</h3>
+    <h3>sdg</h3>
+    <h3>sdg</h3>
+    <h3>sdg</h3>
+
+  </div>
+
+ <div className="col-9">
+ <div className='d-flex justify-content-center'>
       {categories.map((category, index) => (
         <button className='btnn bg-light-green'
           key={index}
@@ -237,7 +246,7 @@ const handleChange =(event) => {
                 
      {filteredData.map((plan) => 
             (
-       <Card key={plan.id} className='car   col-11 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
+       <Card key={plan.id} className='car   col-11 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-3 '>
         {/* <Avatar className='text-uppercase' sx={{ bgcolor: avatarBgColor(plan) }} >
             {plan.title[0]}
         
@@ -304,6 +313,8 @@ const handleChange =(event) => {
 
   </div>
     </div>
+ </div>
+    
     </ThemeProvider>
     </div>
     </div>
