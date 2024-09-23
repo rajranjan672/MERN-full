@@ -11,7 +11,8 @@ router.post('/register',[
     body('name').notEmpty().isAlphanumeric().isLength(3,20),
     body('email').isEmail(),
     body('password').isLength({min:8}),
-    body('city').notEmpty().isAlphanumeric().isLength(3,20),
+    body('country').notEmpty().isAlphanumeric().isLength(3,20),
+    body('state').notEmpty().isAlphanumeric().isLength(3,20),
 
 
 
@@ -37,7 +38,9 @@ router.post('/register',[
         name: req.body.name,
         email: req.body.email,
         password: secPassword,
-        city: req.body.city,
+        country: req.body.country,
+        state: req.body.state,
+       
         
 
 

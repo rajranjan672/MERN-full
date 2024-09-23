@@ -56,20 +56,20 @@ const Data = () => {
        
         <div className="container-fluid p-0">
           <div className="row justify-content-between my-3 mx-auto">
-            <div className="card card1 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1 " role="button" >
+            <div className="card card1 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1 " role="button" >
               <p className="my-auto text-white"><LocalDining /><span className="text-primary">{data1.length}</span> Recipies</p>
             </div>
          
 
-            <div className="card card2 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button" onClick={() => navigate("/users")}>
+            <div className="card card2 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button" onClick={() => navigate("/users")}>
               <p className="my-auto "><Person /><span>{users.length}</span> <span className="mx-auto">Users</span></p>
             </div>
 
-            <div className="card card3 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button">
+            <div className="card card3 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button">
               <p className="my-auto"><Person /> Users</p>
             </div>
 
-            <div className="card col-2 card4 col-10 col-sm-5 col-md-3 col-lg-2 py-4 my-1" role="button">
+            <div className="card col-2 card4 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button">
               <h5>Recipies</h5>
             </div>
             
@@ -170,19 +170,19 @@ const Data = () => {
               </div>
 
               <div className=" row justify-content-between">
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-11 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Indian</h1>
                   </div>
                 </div>
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-11 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Chinese</h1>
                   </div>
                 </div>
-                <div className="card col-8 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
+                <div className="card col-11 col-sm-12 col-md-4 col-lg-3 image-container mb-4 py-2 px-2">
                   <img src={sweet} alt="" className="image" />
                   <div className="overlay">
                     <h1 className="text-white text-center mt-5">Maxican</h1>

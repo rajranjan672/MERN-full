@@ -237,7 +237,7 @@ const handleChange =(event) => {
                 
      {filteredData.map((plan) => 
             (
-       <Card key={plan.id} className='car   col-10 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
+       <Card key={plan.id} className='car   col-11 col-sm-5 col-md-5 col-lg-3 my-1 py-1 mx-2 '>
         {/* <Avatar className='text-uppercase' sx={{ bgcolor: avatarBgColor(plan) }} >
             {plan.title[0]}
         

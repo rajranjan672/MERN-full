@@ -18,10 +18,14 @@ const UserSchema = new Schema({
         
         
     },
-    
-    city: {
+    country: {
         type: String,
     },
+    
+    state: {
+        type: String,
+    },
+    
     tokens:{
 
     }

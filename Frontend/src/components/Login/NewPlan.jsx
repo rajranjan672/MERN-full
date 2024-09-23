@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import axios from 'axios';
 import "./NewPlan.css"
+import Swal from 'sweetalert2';
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
@@ -67,26 +68,34 @@ const NewPlan = ({gett}) => {
   
   const sub = async(e) => {
     e.preventDefault()
-     axios.post("http://localhost:3001/api/actionPlans/createActionPlans", data).then((resp) => {
-       setData(resp.data)
-
-        console.log('res',resp.data)
+    try {
+     axios.post("http://localhost:3001/api/actionPlans/createActionPlans", data);
+      Swal.fire({
+        icon: "success",
+        title: "Recipe Added Successfully",
+        timer:1500,
         
+      });
 
-     }).then(() => {
-      setData({
+      setData({ 
         title: "",
         description: "",
         method: "",
+        category: ""
+    });
+    
   
-       })
+     
+       
        handleClose()
        //
 
        gett()
        console.log("subb")
-     })
-   
+  }catch (error) {
+    Swal.fire('Error', 'Failed to submit data.', 'error');
+  }
+  
     
 }
 
@@ -106,7 +115,7 @@ const NewPlan = ({gett}) => {
   return (
     <>
     <div className='new'>
-    <Button variant='contained' className='col-3 col-sm-3 col-md-2 co-lg-2 col-xl-2' onClick={handleClickOpen}>
+    <Button variant='contained' className='col-4 col-sm-3 col-md-2 co-lg-2 col-xl-2 m-2' onClick={handleClickOpen}>
         Add Recipie
       </Button>
     </div>
@@ -123,13 +132,13 @@ const NewPlan = ({gett}) => {
         <form className="row g-3 needs-validation" onSubmit={sub}>
         <div className="form-floating">
                       <input type="text" name='title' id="title" className="form-control" required
+                      value={data.title}
                         placeholder="title" onChange={(e) => 
                         setData({...data, [e.target.name]: e.target.value})} />
-                      <label className="form-label" htmlFor="title">Title</label>
 
                     </div>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" name='description' id="description" placeholder="name@example.com"
+            <input type="text" className="form-control" name='description' value={data.description} id="description" placeholder="name@example.com"
             onChange={(e) => 
               setData({...data, [e.target.name]: e.target.value})} />
               
@@ -137,7 +146,7 @@ const NewPlan = ({gett}) => {
 
           </div>
           <div className="form-floating">
-          <select className="form-select" name='category' aria-label="Floating label select example" onChange={(e) => 
+          <select className="form-select" name='category' value={data.category} aria-label="Floating label select example" onChange={(e) => 
                         setData({...data, [e.target.name]: e.target.value})} >
             <option selected value="">Open this select menu</option>
             <option value="Indian">Indian</option>

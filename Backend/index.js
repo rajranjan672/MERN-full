@@ -14,6 +14,7 @@ const student = require("./router/student-detail");
  const actionPlans = require("./router/actionplans")
  const faqs = require('./router/faqs')
 //  const users = require('./router/users')
+const countriesStates = require("./CountrriesAndStates/CountriesAndStates..json")
 
  const MongoStore = require('connect-mongo');
 // app.use('/images', express.static('images'))
@@ -84,6 +85,9 @@ app.use("/api/actionPlans", actionPlans);
 app.use('/api/faqs', faqs);
 
 
+app.get('/api/countries-states', (req, res) => {
+    res.json(countriesStates);
+});
 
 
 

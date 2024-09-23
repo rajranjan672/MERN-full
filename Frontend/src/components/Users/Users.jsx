@@ -13,8 +13,9 @@ const Users = () => {
   return (
     <div className="container-fluid h-100">
       <div className="row">
-        <div className="col-2 card h-100 my-2">
-        <p>
+        <div className="col-12 col-sm-12 col-md-2 col-lg-2  h-100 my-2">
+          <div className="card">
+          <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
             neque reprehenderit sequi modi hic nam explicabo dolor iure
             
@@ -24,18 +25,23 @@ const Users = () => {
            
             
           </p>
+          </div>
+        
         </div>
           
       
-      <div className="col-10">
+      <div className="card col-12 col-sm-12 col-md-10 col-lg-10">
 
-
-        <table className="table table-striped">
+<table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
+              <th scope="col">State</th>
+              <th scope="col">Country</th>
+
+
             </tr>
           </thead>
           <tbody>
@@ -45,14 +51,19 @@ const Users = () => {
                   <td>{index + 1}</td>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
+                  <td>{item.state}</td>
+                  <td>{item.country}</td>
+
+
                 </tr>
               );
             })}
           </tbody>
         </table>
+</div>
+        
       </div>
       </div>
-    </div>
   );
 };
 
