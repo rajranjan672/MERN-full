@@ -6,24 +6,33 @@ const JWT_SECRET='ultrockwillrock#'
 const UserSchema = new Schema({
    
     name:{
-        type:String,
+        type:String,  
+        require:true, 
+ // This allows letters and spaces
     },
     email:{
         type:String,
-        unique:true
+        unique:true,
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
 
     },
     password:{
         type:String,
+        required: true
         
         
     },
     country: {
         type: String,
+        required: true
     },
     
     state: {
         type: String,
+        required: true
     },
     
     tokens:{

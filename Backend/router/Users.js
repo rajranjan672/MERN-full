@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken")
 
 //register
 router.post('/register',[
-    body('name').notEmpty().isAlphanumeric().isLength(3,20),
+    // body('name').notEmpty().isAlphanumeric().isLength(3,20),
     body('email').isEmail(),
     body('password').isLength({min:8}),
     body('country').notEmpty().isAlphanumeric().isLength(3,20),
@@ -33,10 +33,12 @@ router.post('/register',[
         }
         const salt = await bcrypt.genSalt(10)   
         secPassword= await bcrypt.hash (req.body.password, salt   ) ;  
+        const { name, email  } = req.body;
+        const trimmedName = name.trim();
 
     user= await UserModel.create({
-        name: req.body.name,
-        email: req.body.email,
+        name: trimmedName,
+        email: email,
         password: secPassword,
         country: req.body.country,
         state: req.body.state,

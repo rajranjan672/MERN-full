@@ -13,6 +13,7 @@ const Register = () => {
     const [country, setCountry] = useState('');
     const [state, setState] = useState('');
     const [countriesStates, setCountriesStates] = useState({});
+    const [error, setError] = useState('');
     const navigate = useNavigate()
     
     const Login =() => {
@@ -33,15 +34,20 @@ const Register = () => {
       e.preventDefault();
       const userData = { name, email, password, country, state };
       try{
-      await axios.post('http://localhost:3001/api/user/register', userData)
-      .then(() =>{
+        if (!name.trim() || !email.trim() || !password || !country || !state) {
+          setError('All fields are required');
+          return;
+      }
+
+      await axios.post('http://localhost:3001/api/user/register', userData);
+      
         Swal.fire({title: "User added",
           text: "You can login now",
           timer: 2000,
           icon: "success"
         })
         navigate("/login")
-      })
+      
       
     } catch (error) {
       if (error.response) {
@@ -66,22 +72,22 @@ const Register = () => {
             <div className="row g-0">
               <div className="col-lg-6">
                 <div className="card-body p-md-5 mx-md-4">
-  
+                {error && <p style={{ color: 'red' }}>{error}</p>}
 
                 <form onSubmit={handleSubmit}>
                   <div className="form-floating mb-2">
-                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required className='form-control' />
+                  <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name"  className='form-control' />
                   <label className="form-label" htmlFor="name">Name</label>
 
 
                   </div>
                   <div className="form-floating mb-2">
-                  <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required className='form-control' />
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"  className='form-control' />
                   <label className="form-label" htmlFor="email">Email</label>
 
                   </div>
                   <div  className='form-floating mb-2'>
-                  <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" className='form-control' required />
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" className='form-control'  />
                   <label className="form-label" htmlFor="password">Password</label>
 
                   </div>
@@ -89,7 +95,7 @@ const Register = () => {
                   <select className='form-select' value={country} onChange={(e) => { 
                 setCountry(e.target.value); 
                 setState(''); 
-            }} required>
+            }} >
                 <option value="">Select Country</option>
                 {Object.keys(countriesStates).map(country => (
                     <option key={country} value={country}>{country}</option>
@@ -99,7 +105,7 @@ const Register = () => {
                   </div>
 
                   <div className="form-floating mb-2">
-                  <select className="form-select"  value={state} onChange={(e) => setState(e.target.value)} required disabled={!country}>
+                  <select className="form-select"  value={state} onChange={(e) => setState(e.target.value)} disabled={!country}>
                 <option value="">Select State</option>
                 {country && countriesStates[country].map(state => (
                     <option key={state} value={state}>{state}</option>
