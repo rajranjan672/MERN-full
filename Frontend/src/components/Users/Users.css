@@ -6,3 +6,13 @@
     background-color: #f8ad0c;
     color: white;
 }
+
+.card-custom {
+    height: fit-content /* Fixed height for the card */
+}
+
+
+.table-container {
+    height: 400px; /* Fixed height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+}

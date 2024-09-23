@@ -19,7 +19,7 @@ const Users = () => {
         const uniqueCountries = [...new Set(users.map(user => user.country))];
 
     return (
-        <div className="users">
+        <div className="users h-100">
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching users: {error.message}</p>}
 

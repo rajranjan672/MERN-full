@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useEffect, useState } from "react";
+import "./Users.css"
 
 const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries }) => {
     const [sortedUsers, setSortedUsers] = useState([]);
@@ -14,7 +15,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
 
     return (
         <div className="container-fluid">
-       <div className="row h-100 my-5">
+       <div className="row my-5">
         <div className="card col-sm-12 col-md-2 col-lg-2 h-100 p-2">
         <h3>Services</h3>
 
@@ -30,7 +31,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
            
         
         </div>
-        <div className="card col-12 col-sm-12 col-md-10 col-lg-10 h-100 ">
+        <div className="card card-custom col-12 col-sm-12 col-md-10 col-lg-10 ">
             
             <FormControl className="my-2">
             <InputLabel id="demo-simple-select-label">{selectedCountry ? selectedCountry : 'All Countries'}</InputLabel>
@@ -47,8 +48,9 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
             </Select>
             </FormControl>
         
-
-            <table className="table h-100 table-striped">
+                <div className="card-body">
+                    <div className="table-container">
+                    <table className="table table-striped ">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -60,15 +62,19 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                 <tbody>
                     {sortedUsers.map((user, index) => (
                         <tr key={index}>
-                            <td>{user.name}</td>
+                            <td className="text-uppercase">{user.name}</td>
                             <td>{user.email}</td>
-                            <td>{user.state}</td>
-                            <td>{user.country}</td>
+                            <td className="text-capitalize">{user.state}</td>
+                            <td className="text-uppercase">{user.country}</td>
 
                         </tr>
                     ))}
                 </tbody>
             </table>
+                    </div>
+               
+                </div>
+           
         </div>
             
         </div>
