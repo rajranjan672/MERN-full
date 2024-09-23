@@ -16,8 +16,18 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
         <div className="container-fluid">
        <div className="row h-100 my-5">
         <div className="card col-sm-12 col-md-2 col-lg-2 h-100 p-2">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque ratione, accusamus quae harum nam praesentium! Labore sequi officiis est.</p>
+        <h3>Services</h3>
+
+            <div className="card p-2 my-2">
+            <h5 className="text-center">Food Recipies</h5>
             <button className="explore btn btn-info">Explore</button>
+            </div>
+
+            <div className="card p-2 my-2">
+            <h5 className="text-center">Food Recipies</h5>
+           
+            </div>
+           
         
         </div>
         <div className="card col-12 col-sm-12 col-md-10 col-lg-10 h-100 ">
@@ -43,6 +53,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>State</th>
                         <th>Country</th>
                     </tr>
                 </thead>
@@ -51,7 +62,9 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                         <tr key={index}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
+                            <td>{user.state}</td>
                             <td>{user.country}</td>
+
                         </tr>
                     ))}
                 </tbody>
