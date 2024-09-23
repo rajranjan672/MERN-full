@@ -1,22 +1,34 @@
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+
 const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries }) => {
     // Get unique countries for the dropdown
 
     return (
-        <div className="container-fluid h-100">
+        <div className="container-fluid">
        <div className="row h-100 my-5">
         <div className="card col-sm-12 col-md-2 col-lg-2 h-100">
             <button>H</button>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque ratione, accusamus quae harum nam praesentium! Labore sequi officiis est.</p>
         </div>
-        <div className="card col-12 col-sm-12 col-md-8 col-lg-9 h-100">
-        <select className="col-2 my-2" value={selectedCountry} onChange={(e) => onCountryChange(e.target.value)}>
-                <option value="">All Countries</option>
+        <div className="card col-12 col-sm-12 col-md-8 col-lg-9 h-100 ">
+            
+            <FormControl className="my-2">
+            <InputLabel id="demo-simple-select-label">{selectedCountry ? selectedCountry : 'All Countries'}</InputLabel>
+            <Select className="col-2 my-2"  id="demo-simple-select"
+            label="Country"
+             labelId="demo-simple-select-label" value={selectedCountry}
+              onChange={(e) => onCountryChange(e.target.value)}>
+                <MenuItem value="">
+                        <em>All Countries</em>
+                    </MenuItem>
                 {uniqueCountries.map((country, index) => (
-                    <option key={index} value={country}>{country}</option>
+                    <MenuItem key={index} value={country}>{country}</MenuItem>
                 ))}
-            </select>
+            </Select>
+            </FormControl>
+        
 
-            <table className="table h-100">
+            <table className="table h-100 table-striped">
                 <thead>
                     <tr>
                         <th>Name</th>

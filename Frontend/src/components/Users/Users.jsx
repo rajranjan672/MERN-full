@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UsersCustom from "../Custom hooks/UsersCustom";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import UserTable from "./UserTable";
+import "./Users.css";
 
 const Users = () => {
   const { users, loading, error } = UsersCustom();
@@ -18,9 +19,11 @@ const Users = () => {
         const uniqueCountries = [...new Set(users.map(user => user.country))];
 
     return (
-        <div>
+        <div className="users">
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching users: {error.message}</p>}
+
+            
             <UserTable
                 users={filteredUsers} 
                 selectedCountry={selectedCountry} 
