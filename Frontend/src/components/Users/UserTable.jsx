@@ -1,6 +1,15 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries }) => {
+    const [sortedUsers, setSortedUsers] = useState([]);
+
+    useEffect(() => {
+        if (users.length) {
+            const sorted = [...users].sort((a, b) => a.name.localeCompare(b.name)); // Sort users by name
+            setSortedUsers(sorted);
+        }
+    }, [users]);
     // Get unique countries for the dropdown
 
     return (
@@ -8,7 +17,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
        <div className="row h-100 my-5">
         <div className="card col-sm-12 col-md-2 col-lg-2 h-100 p-2">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque ratione, accusamus quae harum nam praesentium! Labore sequi officiis est.</p>
-            <button>H</button>
+            <button className="explore btn btn-info">Explore</button>
         
         </div>
         <div className="card col-12 col-sm-12 col-md-10 col-lg-10 h-100 ">
@@ -38,7 +47,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, index) => (
+                    {sortedUsers.map((user, index) => (
                         <tr key={index}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
