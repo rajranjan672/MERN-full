@@ -7,6 +7,9 @@ const createError = require('http-errors')
 const cookies = require("cookie-parser")
 const app = express();
 
+
+// app.use('/image', express.static(path.join(__dirname, 'images')));
+
 // importing routes
 
 const student = require("./router/student-detail");
@@ -15,9 +18,9 @@ const student = require("./router/student-detail");
  const faqs = require('./router/faqs')
 //  const users = require('./router/users')
 const countriesStates = require("./CountrriesAndStates/CountriesAndStates..json")
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
  const MongoStore = require('connect-mongo');
-// app.use('/images', express.static('images'))
+
 const dotenv = require("dotenv").config();
 
 
@@ -40,7 +43,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 // port
 const port = 3001;
 
-app.use(express.static('uploads'));
+// app.use(express.static('uploads'));
 
 //middleware
 
@@ -85,7 +88,7 @@ app.use("/api/students", student);
 app.use("/api/courses", course);
 app.use("/api/actionPlans", actionPlans);
 app.use('/api/faqs', faqs);
-
+app.use('/api/article', require("./router/Articles"))
 
 app.get('/api/countries-states', (req, res) => {
     res.json(countriesStates);

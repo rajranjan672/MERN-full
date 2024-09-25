@@ -6,20 +6,12 @@ const musicSchema = new mongoose.Schema({
         required: true,
     },
 
-    artist:{
-        type: String,
-        required: true,
-    },
-
     image: {
         type: String,
         required: true,
     } ,
 
-    audio: {
-        type: String,
-        required: true,
-    }
+  
 });
 
 const Music = mongoose.model('Music', musicSchema);

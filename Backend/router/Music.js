@@ -1,42 +1,60 @@
-const multer = require('multer');
-const path = require('path');
-const Music = require("../models/Songs")
+const multer = require("multer");
 const express = require("express");
+const Music = require("../models/Songs");
+const path = require("path");
+const fs = require("fs");
 
-const route = express.Router()
+const router = express.Router();
+
+const uploadDir = path.join(__dirname, 'image');
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+    destination: function (req, file, cb) {
+        cb(null, uploadDir);
     },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Append extension
+    filename: function (req, file, cb) {
+        const allowedFileTypes = ["image/jpeg", "image/jpg", "image/png"];
+        if (allowedFileTypes.includes(file.mimetype)) {
+            const uniqueSuffix = Date.now() + path.extname(file.originalname);
+            cb(null, uniqueSuffix);
+        } else {
+            cb(new Error("File type not allowed"), false);
+        }
     }
 });
 
 const upload = multer({ storage });
 
-// Route to upload music
-route.post('/create', upload.fields([{ name: 'image' }, { name: 'audio' }]), async (req, res) => {
-    const { title, artist } = req.body;
-    const imagePath = req.files['image'][0].path;
-    const audioPath = req.files['audio'][0].path;
+router.route("/create").post(upload.single("photo"), (req, res) => {
+    console.log(req.body);
+    console.log(req.file);
 
-    const newMusic = new Music({
+    const title = req.body.title;
+    const image = req.file ? req.file.path : null;
+
+    if (!image) {
+        return res.status(400).json({ error: "Image file is required." });
+    }
+
+    const newData = {
         title,
-        artist,
-        image: imagePath,
-        audio: audioPath,
-    });
+        image,
+    };
 
-    await newMusic.save();
-    res.status(201).json(newMusic);
+    const newUser = new Music(newData);
+
+    newUser
+        .save()
+        .then(() => res.json("User Added"))
+        .catch((err) => res.status(400).json("Error: " + err));
 });
 
-// Route to get all music
-route.get('/getsongs', async (req, res) => {
-    const music = await Music.find();
-    res.json(music);
-});
+router.get("/get", async(req,res) => {
+    let ress = await Music.find()
+    return res.json(ress)
+})
 
-module.exports = route;
+module.exports = router;

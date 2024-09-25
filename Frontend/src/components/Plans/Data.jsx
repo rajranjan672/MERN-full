@@ -85,7 +85,7 @@ const Data = () => {
                 <Audiotrack />
                 <div className="px-auto">
                 <span className=" mx-2"></span>
-                  <span className="mx-auto">Songs</span>
+                  <span className="mx-auto">Articles</span>
                 </div>
                 
                  </p>

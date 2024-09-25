@@ -56,6 +56,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                     <table className="table table-striped ">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>State</th>
@@ -65,6 +66,7 @@ const UserTable = ({ users, selectedCountry, onCountryChange, uniqueCountries })
                 <tbody>
                     {sortedUsers.map((user, index) => (
                         <tr key={index}>
+                            <td>{index+1}</td>
                             <td className="text-uppercase">{user.name}</td>
                             <td>{user.email}</td>
                             <td className="text-capitalize">{user.state}</td>
