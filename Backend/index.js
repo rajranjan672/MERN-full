@@ -40,7 +40,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 // port
 const port = 3001;
 
-
+app.use(express.static('uploads'));
 
 //middleware
 
@@ -79,6 +79,8 @@ const auth = require("./router/Users");
 // const router = require('./router/Users');
 //routes
 app.use('/api/user' , require('./router/Users'));
+app.use('/api/song' , require('./router/Music'));
+
 app.use("/api/students", student);
 app.use("/api/courses", course);
 app.use("/api/actionPlans", actionPlans);

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./card.css";
 import girl from "../../Assets/beautiful-girl-eating-vegetarian-lunch.png";
-import { FitScreen, LocalDining, Person } from "@mui/icons-material";
+import { Audiotrack, FitScreen, LocalDining, Person } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import sweet from "../../Assets/sweet.jpeg";
 import { Chart } from "react-google-charts";
@@ -56,17 +56,39 @@ const Data = () => {
        
         <div className="container-fluid p-0">
           <div className="row justify-content-between my-3 mx-auto">
-            <div className="card card1 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1 " role="button" >
-              <p className="my-auto text-white"><LocalDining /><span className="text-primary">{data1.length}</span> Recipies</p>
+            <div className="card card1 col-11 col-sm-5 col-md-5 col-lg-2 my-1 " role="button" >
+              <p className="d-flex align-item-center my-auto mx-auto">
+                <LocalDining />
+                <div className="d-flex px-auto">
+                <span className="text-primary mx-2">{data1.length}</span>
+                <span className="">Recipies</span>
+                </div>
+               
+                 
+                 </p>
             </div>
          
 
-            <div className="card card2 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button" onClick={() => navigate("/users")}>
-              <p className="my-auto "><Person /><span>{users.length}</span> <span className="mx-auto">Users</span></p>
+            <div className="card card2 col-11 col-sm-5 col-md-5 col-lg-2 my-1 " role="button" onClick={() => navigate("/users")}>
+              <p className="d-flex align-item-center my-auto mx-auto ">
+                <Person />
+                <div className=" px-auto">
+                <span className=" mx-2">{users.length}</span>
+                <span className="">Users</span>
+                </div>
+                
+                 </p>
             </div>
 
-            <div className="card card3 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button">
-              <p className="my-auto"><Person /> Users</p>
+            <div className="card card3 col-11 col-sm-5 col-md-5 col-lg-2 my-1" role="button" onClick={() => navigate("/songs")}>
+              <p className=" d-flex align-item-center my-auto mx-auto">
+                <Audiotrack />
+                <div className="px-auto">
+                <span className=" mx-2"></span>
+                  <span className="mx-auto">Songs</span>
+                </div>
+                
+                 </p>
             </div>
 
             <div className="card col-2 card4 col-11 col-sm-5 col-md-5 col-lg-2 py-4 my-1" role="button">

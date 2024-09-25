@@ -35,6 +35,7 @@ const PlanDetails = React.lazy(() => import('./components/Plans/PlanDetails'))
 
 const Login = React.lazy(() => import('./components/Login/Login'))
 const Users = React.lazy(() => import("./components/Users/Users"))
+const Song = React.lazy(() => import("./components/Plans/Song"))
 
 const DUMMY_EXPENSES = [
   { id: "e1", title: "Groceries", amount: "20.40", date: new Date() },
@@ -135,7 +136,13 @@ const navigate = useNavigate()
         <Route path="/users" element={<React.Suspense >
           <Users />
         </React.Suspense>} />
-        <Route path='/dta' element={<Data />} />
+
+        <Route path='/songs' element={<React.Suspense>
+          <Song />
+        </React.Suspense> } />
+        <Route path='/dta' element={<React.Suspense>
+          <Data />
+        </React.Suspense> } />
 
         <Route path="/*" element={<Error />} />
 

@@ -135,6 +135,7 @@ const NewPlan = ({gett}) => {
                       value={data.title}
                         placeholder="title" onChange={(e) => 
                         setData({...data, [e.target.name]: e.target.value})} />
+              <label htmlFor="title">Title</label>
 
                     </div>
           <div className="form-floating mb-3">
