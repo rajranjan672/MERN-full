@@ -141,7 +141,7 @@ const gett = async() => {
                       <>
 
                       <div className="col-10 col-sm-5 col-md-5 col-lg-3 p-0 mx-auto" role='button'>
-                        <Card className='d-flex justify-content-between' >
+                        <Card className='d-flex mx-2' >
                         <img className='w-100 ' src={`http://localhost:3001/uploads/${item.articleImage}`} alt="" height={"280px"} />
 
                         </Card>
